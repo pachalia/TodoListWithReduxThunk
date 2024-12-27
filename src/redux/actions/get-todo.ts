@@ -1,4 +1,4 @@
-import {TodoService} from '../../services/todo.service.ts';
+import { TodoService } from '../../services/todo.service.ts';
 
 export const GET_TOOO = () => {
 	return (dispatch) => {

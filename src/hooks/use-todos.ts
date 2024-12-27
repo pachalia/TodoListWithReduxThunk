@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from './hooks.ts';
 
 export const useTodos = () => {
 	const dispatch = useAppDispatch();
-	const { todoLists: todos } = useAppSelector((state) => state);
+	const todos = useAppSelector((state) => state.todoLists);
 	useEffect(() => {
 		dispatch(GET_TOOO());
 	}, []);
