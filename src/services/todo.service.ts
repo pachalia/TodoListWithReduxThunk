@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { ITodo } from '../interfaces/interfaces.ts';
-import { IAddFormValue } from '../components/AddTodoForm/addTodoForm.tsx';
+import { IAddFormValue } from '../components';
 
 const url = 'http://andreypachalia.ru:4000/api';
 
