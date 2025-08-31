@@ -7,7 +7,49 @@ export interface IState {
 
 export const initialState: IState = { todoLists: [], findTodos: null };
 
-export const reducer = (state: IState = initialState, action) => {
+interface AddTodoAction {
+	type: 'ADD_TODO';
+	payload: ITodo;
+}
+
+interface GetTodoAction {
+	type: 'GET_TODO';
+	payload: ITodo[];
+}
+
+interface DeleteTodoAction {
+	type: 'DELETE_TODO';
+	payload: string; // id удаляемого todo
+}
+
+interface UpdateTodoStatusAction {
+	type: 'UPDATE_TODO_STATUS';
+	payload: ITodo;
+}
+
+interface UpdateTodoDescriptionAction {
+	type: 'UPDATE_TODO_DESCRIPTION';
+	payload: ITodo;
+}
+
+interface FindTodosAction {
+	type: 'FIND_TODOS';
+	payload: ITodo[] | null;
+}
+
+// Union тип для всех возможных действий
+export type TodoActionTypes =
+	| AddTodoAction
+	| GetTodoAction
+	| DeleteTodoAction
+	| UpdateTodoStatusAction
+	| UpdateTodoDescriptionAction
+	| FindTodosAction;
+
+export const reducer = (
+	state: IState = initialState,
+	action: TodoActionTypes,
+): IState => {
 	switch (action.type) {
 		case 'ADD_TODO':
 			return {
